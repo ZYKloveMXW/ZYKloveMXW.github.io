@@ -120,7 +120,7 @@
 <meta property="og:image" content="http://up.2cto.com/2011/1003/20111003112209954.gif">
 <meta property="og:image" content="http://up.2cto.com/2011/1003/20111003112209623.gif">
 <meta property="og:image" content="http://up.2cto.com/2011/1003/20111003112209360.gif">
-<meta property="og:updated_time" content="2019-03-16T10:38:04.549Z">
+<meta property="og:updated_time" content="2019-03-16T14:52:16.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C链表的运用2（反转）">
 <meta name="twitter:description" content="反转链表">
@@ -184,7 +184,6 @@
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
-
   
   
     
@@ -399,7 +398,7 @@
                 
               
 
-              <time title="创建时间：2019-03-16 18:14:11 / 修改时间：18:38:04" itemprop="dateCreated datePublished" datetime="2019-03-16T18:14:11+08:00">2019-03-16</time>
+              <time title="创建时间：2019-03-16 18:14:11 / 修改时间：22:52:16" itemprop="dateCreated datePublished" datetime="2019-03-16T18:14:11+08:00">2019-03-16</time>
             
 
             
@@ -459,7 +458,7 @@
 <p>定义三个指针p，q，r<br>初始化:<strong>p指向head，q指向head-&gt;next，然后让这个head-&gt;next为NULL</strong></p>
 <p><img src="http://up.2cto.com/2011/1003/20111003112208149.gif" alt="20181208102218.jpg"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CreateList* ReverseList2(CreateList* head)  //反转算法 </span><br><span class="line">&#123;        </span><br><span class="line">	CreateList *p,*q,*r; </span><br><span class="line">    p=head;    </span><br><span class="line">    q=head-&gt;next;  </span><br><span class="line">    head-&gt;next=NULL;</span><br></pre></td></tr></table></figure></p>
 <p>当q不为NULL的情况下，开始循环<br><strong>r是q-&gt;next,即第三个，并让q(中间那个)指向前面一位(p)</strong><br><img src="http://up.2cto.com/2011/1003/20111003112209954.gif" alt="链表.jpg"><br><strong>然后(p,q)整体右移一个单位</strong><br><img src="http://up.2cto.com/2011/1003/20111003112209623.gif" alt="链表2.jpg"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">while(q!=NULL)</span><br><span class="line">&#123;  </span><br><span class="line">    r=q-&gt;next; </span><br><span class="line">    q-&gt;next=p;      </span><br><span class="line">    p=q; </span><br><span class="line">    q=r; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>直到…<br><img src="http://up.2cto.com/2011/1003/20111003112209360.gif" alt="链表3.jpg"><br><strong><em>记得！！！最后q是NULL的时候，变为head</em></strong></p>
+<p>直到…<br><img src="http://up.2cto.com/2011/1003/20111003112209360.gif" alt="链表3.jpg"><br><strong><em>记得！！！最后q是NULL的时候，p变为head</em></strong></p>
 <p>完整代码如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">CreateList* ReverseList2(CreateList* head)  //反转算法 </span><br><span class="line">&#123;        </span><br><span class="line">	CreateList *p,*q,*r; </span><br><span class="line">    p=head;    </span><br><span class="line">    q=head-&gt;next;  </span><br><span class="line">    head-&gt;next=NULL;  </span><br><span class="line">    while(q!=NULL)</span><br><span class="line">    &#123;  </span><br><span class="line">        r=q-&gt;next; </span><br><span class="line">        q-&gt;next=p;      </span><br><span class="line">        p=q; </span><br><span class="line">        q=r; </span><br><span class="line">    &#125;</span><br><span class="line">    head=p; </span><br><span class="line">	 </span><br><span class="line">    return head;      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
@@ -719,12 +718,13 @@
   
     
       
-        
-      
   
-  <script type="text/javascript" color="0,0,255" opacity="0.5" zindex="-1" count="99" src="true"></script>
+  <script type="text/javascript" color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
+
+  
+  
 
 
 
@@ -749,6 +749,16 @@
   
   
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
   
 
 
@@ -829,6 +839,7 @@
   
 
   
+
 
 </body>
 </html>
