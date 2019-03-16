@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+  <meta name="description" content="推荐(尾插法)注意尾插法的head是有空间的(malloc)r=head-&amp;gt;s-&amp;gt;s-&amp;gt;next最后面r-&amp;gt;next=**NULL记得123456789101112131415161718192021CreateList *Create1()		//创表(尾插法)&amp;#123;	int insert;	CreateList *head1,*r,*s;	head1=(Crea">
 <meta name="keywords" content="链表">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C链表">
+<meta property="og:title" content="C链表的运用1（创建）">
 <meta property="og:url" content="http://yoursite.com/2019/03/16/C链表/index.html">
 <meta property="og:site_name" content="I LOVE U">
-<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:description" content="推荐(尾插法)注意尾插法的head是有空间的(malloc)r=head-&amp;gt;s-&amp;gt;s-&amp;gt;next最后面r-&amp;gt;next=**NULL记得123456789101112131415161718192021CreateList *Create1()		//创表(尾插法)&amp;#123;	int insert;	CreateList *head1,*r,*s;	head1=(Crea">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-16T10:00:13.163Z">
+<meta property="og:updated_time" content="2019-03-16T10:38:06.072Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C链表">
-<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta name="twitter:title" content="C链表的运用1（创建）">
+<meta name="twitter:description" content="推荐(尾插法)注意尾插法的head是有空间的(malloc)r=head-&amp;gt;s-&amp;gt;s-&amp;gt;next最后面r-&amp;gt;next=**NULL记得123456789101112131415161718192021CreateList *Create1()		//创表(尾插法)&amp;#123;	int insert;	CreateList *head1,*r,*s;	head1=(Crea">
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>C链表 | I LOVE U</title>
+  <title>C链表的运用1（创建） | I LOVE U</title>
   
 
 
@@ -369,7 +369,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">C链表
+          <h1 class="post-title" itemprop="name headline">C链表的运用1（创建）
               
             
           </h1>
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2019-03-16 17:43:35 / 修改时间：18:00:13" itemprop="dateCreated datePublished" datetime="2019-03-16T17:43:35+08:00">2019-03-16</time>
+              <time title="创建时间：2019-03-16 17:43:35 / 修改时间：18:38:06" itemprop="dateCreated datePublished" datetime="2019-03-16T17:43:35+08:00">2019-03-16</time>
             
 
             
@@ -450,7 +450,8 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">typedef struct node</span><br><span class="line">&#123;</span><br><span class="line">	int data;</span><br><span class="line">	struct  node *next;</span><br><span class="line">&#125;CreateList;</span><br><span class="line"></span><br><span class="line">CreateList *Create1()		//创表(尾插法)</span><br><span class="line">&#123;</span><br><span class="line">	int insert;</span><br><span class="line">	CreateList *head1,*r,*s;</span><br><span class="line"></span><br><span class="line">	head1=(CreateList*)malloc(sizeof(CreateList));</span><br><span class="line">	r=head1;</span><br><span class="line">	while(1)</span><br><span class="line">	&#123;</span><br><span class="line">		scanf(&quot;%d&quot;,&amp;insert);</span><br><span class="line">		if(insert==0)</span><br><span class="line">			break;</span><br><span class="line">		s=(CreateList*)malloc(sizeof(CreateList));</span><br><span class="line">		s-&gt;data=insert;</span><br><span class="line">		r-&gt;next=s;</span><br><span class="line">		r=s;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next=NULL;</span><br><span class="line"></span><br><span class="line">	return head1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CreateList *Create2()</span><br><span class="line">&#123;</span><br><span class="line">	CreateList *head2,*r,*s;</span><br><span class="line">	int insert;</span><br><span class="line"></span><br><span class="line">	head2=(CreateList*)malloc(sizeof(CreateList));</span><br><span class="line">	r=head2;</span><br><span class="line">	while(1)</span><br><span class="line">	&#123;</span><br><span class="line">		scanf(&quot;%d&quot;,&amp;insert);</span><br><span class="line">		if(insert==0)</span><br><span class="line">			break;</span><br><span class="line">		s=(CreateList*)malloc(sizeof(CreateList));</span><br><span class="line">		s-&gt;data=insert;</span><br><span class="line">		r-&gt;next=s;</span><br><span class="line">		r=s;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next=NULL;</span><br><span class="line"></span><br><span class="line">	return head2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CreateList *SetTogether(CreateList *L1,CreateList*L2)	//合并</span><br><span class="line">&#123;</span><br><span class="line">	CreateList *L3,*a,*b,*c;</span><br><span class="line"></span><br><span class="line">	L3=(CreateList*)malloc(sizeof(CreateList));</span><br><span class="line">	a=L1-&gt;next;</span><br><span class="line">	b=L2-&gt;next;</span><br><span class="line">	c=L3;</span><br><span class="line">	while(a!=NULL&amp;&amp;b!=NULL)</span><br><span class="line">	&#123;</span><br><span class="line">		if(a-&gt;data&gt;=b-&gt;data)</span><br><span class="line">		&#123;</span><br><span class="line">			c-&gt;next=b;</span><br><span class="line">			c=b;</span><br><span class="line">			b=b-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			c-&gt;next=a;</span><br><span class="line">			c=a;</span><br><span class="line">			a=a-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	c-&gt;next=(a==NULL)?b:a;</span><br><span class="line"></span><br><span class="line">	return L3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CreateList* ReverseList(CreateList* L3)  //反转算法 </span><br><span class="line">&#123;        </span><br><span class="line">	CreateList *p,*q,*r; </span><br><span class="line">    p=L3;    </span><br><span class="line">    q=L3-&gt;next;  </span><br><span class="line">    L3-&gt;next=NULL;  </span><br><span class="line">    while(q!=NULL)</span><br><span class="line">    &#123;  </span><br><span class="line">        r=q-&gt;next; </span><br><span class="line">        q-&gt;next=p;      </span><br><span class="line">        p=q; </span><br><span class="line">        q=r; </span><br><span class="line">    &#125;</span><br><span class="line">    L3=p; </span><br><span class="line">	 </span><br><span class="line">    return L3;      </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">void Output(CreateList *L3)</span><br><span class="line">&#123;</span><br><span class="line">	CreateList *t;</span><br><span class="line"></span><br><span class="line">	t=L3;</span><br><span class="line">	while(t-&gt;next!=NULL)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%d &quot;,t-&gt;data);</span><br><span class="line">		t=t-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">	CreateList *p1,*p2,*p3;</span><br><span class="line"></span><br><span class="line">	p1=Create1();</span><br><span class="line">	p2=Create2();</span><br><span class="line">	p3=SetTogether(p1,p2);</span><br><span class="line">	p3=ReverseList(p3);</span><br><span class="line">	Output(p3);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <a id="more"></a>
+<p>推荐(尾插法)<br>注意尾插法的head是有空间的(malloc)<br><strong>r=head-&gt;s-&gt;s-&gt;next</strong><br>最后面r-&gt;next=**NULL记得<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">CreateList *Create1()		//创表(尾插法)</span><br><span class="line">&#123;</span><br><span class="line">	int insert;</span><br><span class="line">	CreateList *head1,*r,*s;</span><br><span class="line"></span><br><span class="line">	head1=(CreateList*)malloc(sizeof(CreateList));</span><br><span class="line">	r=head1;	//重点</span><br><span class="line">	while(1)</span><br><span class="line">	&#123;</span><br><span class="line">		scanf(&quot;%d&quot;,&amp;insert);</span><br><span class="line">		if(insert==0)</span><br><span class="line">			break;</span><br><span class="line">		s=(CreateList*)malloc(sizeof(CreateList));</span><br><span class="line">		s-&gt;data=insert;</span><br><span class="line">		r-&gt;next=s;</span><br><span class="line">		r=s;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next=NULL;	//别忘了</span><br><span class="line"></span><br><span class="line">	return head1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -496,6 +497,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/16/C/" rel="prev" title="C链表的运用2（反转）">
+                C链表的运用2（反转） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -556,7 +561,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
