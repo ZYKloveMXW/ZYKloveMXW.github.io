@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="CSS实现背景全覆盖">
+  <meta name="description" content="JS变量提升(引用地址https://blog.csdn.net/qq_42606051/article/details/82016733)">
 <meta name="keywords" content="html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端">
 <meta property="og:url" content="http://yoursite.com/2019/03/16/html/index.html">
 <meta property="og:site_name" content="I LOVE U">
-<meta property="og:description" content="CSS实现背景全覆盖">
+<meta property="og:description" content="JS变量提升(引用地址https://blog.csdn.net/qq_42606051/article/details/82016733)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-05T12:45:12.122Z">
+<meta property="og:updated_time" content="2019-10-21T11:35:35.779Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端">
-<meta name="twitter:description" content="CSS实现背景全覆盖">
+<meta name="twitter:description" content="JS变量提升(引用地址https://blog.csdn.net/qq_42606051/article/details/82016733)">
 
 
 
@@ -410,7 +410,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-05 20:45:12" itemprop="dateModified" datetime="2019-09-05T20:45:12+08:00">2019-09-05</time>
+                <time title="修改时间：2019-10-21 19:35:35" itemprop="dateModified" datetime="2019-10-21T19:35:35+08:00">2019-10-21</time>
               
             
           </span>
@@ -468,7 +468,44 @@
       
 
       
-        <p><a href="https://www.jianshu.com/p/5480cd1a5d89" target="_blank" rel="noopener">CSS实现背景全覆盖</a><br><a id="more"></a></p>
+        <p><strong>JS变量提升(引用地址<a href="https://blog.csdn.net/qq_42606051/article/details/82016733" target="_blank" rel="noopener">https://blog.csdn.net/qq_42606051/article/details/82016733</a>)</strong></p>
+<a id="more"></a>
+<h1 id="js变量提升"><a href="#js变量提升" class="headerlink" title="js变量提升"></a>js变量提升</h1><p>对于大多数js开发者来说，变量提升可以说是一个非常常见的问题，但是可能很多人对其不是特别的了解。所以在此，我想来讲一讲。</p>
+<p>先从一个简单的例子来入门：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
+<p>你觉得以上的代码会输出什么？是输出undefined吗？如果是按照程序的自上而下执行的话，那么这一段代码确实是输出undefined。然而，<strong>javascript并不是严格的自上而下执行的语言</strong>。</p>
+<p>这一段代码的输出结果是2，是不是感到很意外？为什么会这样呢？这个问题的关键就在于变量提升(hoisting)。<strong>它会将当前作用域的所有变量的声明提升到程序的顶部</strong>，因此上面的代码其实等价于以下代码。这样是不是就很简单明了了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line">a = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
+<p>那么接下来，我们再来看这个例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<p>你觉得以上的代码会输出什么？是直接报ReferenceError吗？还是输出2呢？</p>
+<p>其实以上代码会输出undefined。为什么呢？我们之前说过，js会将变量的声明提升到顶部，可是赋值语句并不会提升。对于js来说，其实var a = 2是分为两步的:</p>
+<ol>
+<li>var a;</li>
+<li>a = 2;</li>
+</ol>
+<p>而js只会将第一步提升到顶部，所以上面的语句等价于：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line">a = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="为什么有变量提升"><a href="#为什么有变量提升" class="headerlink" title="为什么有变量提升"></a>为什么有变量提升</h3><p>那么为什么会出现变量提升这个现象呢？</p>
+<p><strong>js和其他语言一样，都要经历编译和执行阶段。而js在编译阶段的时候，会搜集所有的变量声明并且提前声明变量，而其他的语句都不会改变他们的顺序，因此，在编译阶段的时候，第一步就已经执行了，而第二步则是在执行阶段执行到该语句的时候才执行。</strong></p>
+<h3 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h3><p>js的变量声明其实大体上可以分为三种：var声明、let与const声明和函数声明。</p>
+<p>函数声明与其他声明一起出现的时候，就可能会引起一些困扰。我们来看下面的例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">foo();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foo'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> foo = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<p>你觉得上面会输出什么？TypeError吗？其实输出的结果是foo。这就引出了我们的问题了，当函数声明与其他声明一起出现的时候，是以谁为准呢？答案就是，<strong>函数声明高于一切，毕竟函数是js的第一公民。</strong></p>
+<p>那么，下面的例子呢？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">foo();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'1'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'2'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当出现多个函数声明，那怎么办呢？以上代码输出结果为2。<strong>因为有多个函数声明的时候，是由最后面的函数声明来替代前面的。</strong></p>
+<p>想必经历了以上的例子，你应该已经对变量声明已经有一定的了解了。那么我再来出一道题目来测试下。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">foo();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foo'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这道题目是不是非常简单啊？这道题和上面的第二道例子其实是一样的。var foo = function() {}这种格式我们叫做函数表达式。</p>
+<p>它其实也是分为两部分，一部分是var foo,而一部分是foo = function() {}，参照例2，我们可以知道，这道题的结果应该是报了TypeError(因为foo声明但未赋值，因此foo是undefined)。</p>
+<p>上面我们提到了var声明，函数声明，那么接下来我们来讲讲let和const声明呢。这个我之前写过一边文章，大家可以点击<a href="https://www.cnblogs.com/chenjg/p/7158248.html" target="_blank" rel="noopener">这里</a>去查看下。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>那么接下来我们来总结一下。</p>
+<ol>
+<li>js会将变量的声明提升到js顶部执行，因此对于这种语句:var a = 2;其实上js会将其分为var a;和a = 2;两部分，并且将var a这一步提升到顶部执行。</li>
+<li>变量提升的本质其实是由于js引擎在编译的时候，就将所有的变量声明了，因此在执行的时候，所有的变量都已经完成声明。</li>
+<li>当有多个同名变量声明的时候，函数声明会覆盖其他的声明。如果有多个函数声明，则是由最后的一个函数声明覆盖之前所有的声明。</li>
+</ol>
 
       
     </div>
@@ -505,8 +542,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/16/C/" rel="next" title="C链表的运用2（反转）">
-                <i class="fa fa-chevron-left"></i> C链表的运用2（反转）
+              <a href="/2019/03/16/python1/" rel="next" title="函数的闭包">
+                <i class="fa fa-chevron-left"></i> 函数的闭包
               </a>
             
           </div>
@@ -515,8 +552,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/17/随笔2/" rel="prev" title="随笔2">
-                随笔2 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/16/C/" rel="prev" title="C链表的运用2（反转）">
+                C链表的运用2（反转） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -562,8 +599,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -647,6 +693,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#js变量提升"><span class="nav-number">1.</span> <span class="nav-text">js变量提升</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么有变量提升"><span class="nav-number">1.0.1.</span> <span class="nav-text">为什么有变量提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量声明"><span class="nav-number">1.0.2.</span> <span class="nav-text">变量声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.0.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
